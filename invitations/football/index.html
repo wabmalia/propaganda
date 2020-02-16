@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <title>Football Invitation</title>
+</head>
+
+<body>
+    <h1>Wanted!</h1>
+    <h3>Players for football match...</h3>
+    <img src="shoot.png" />
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <h3>Name</h3>
+                </th>
+                <th>
+                    <div>
+                        <span><h3>Availability</h3></span>
+                        <div class="spread-row">
+                            <span>2f</span>
+                            <span>3f</span>
+                            <span>4f</span>
+                            <span>5f</span>
+                            <span>6f</span>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="table-content">
+        </tbody>
+    </table>
+</body>
+<script>
+    function createRow(name, monday, tuesday, wednesday, thursday, friday) {
+        const tableContent = document.getElementById("table-content");
+        monday = monday ? "checked" : ""
+        tuesday = tuesday ? "checked" : ""
+        wednesday = wednesday ? "checked" : ""
+        thursday = thursday ? "checked" : ""
+        friday = friday ? "checked" : ""
+        const row = `<tr>
+            <td>${name}</td>
+            <td>
+                <div class="spread-row">
+                    <span class="checkbox ${monday}"></span>
+                    <span class="checkbox ${tuesday}"></span>
+                    <span class="checkbox ${wednesday}"></span>
+                    <span class="checkbox ${thursday}"></span>
+                    <span class="checkbox ${friday}"></span>
+                </div>
+            </td>
+        </tr>`;
+
+        tableContent.innerHTML += row;
+    }
+    createRow("Wilson Mália", false, true, false, true, true)
+    new Array(30).fill(() => "")
+        .forEach(() => createRow(""))
+</script>
+
+</html>
